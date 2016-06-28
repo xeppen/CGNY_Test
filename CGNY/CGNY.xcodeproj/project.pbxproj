@@ -15,6 +15,7 @@
 		3A2A3B741D22DF1F00B2E2D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A3B731D22DF1F00B2E2D4 /* Assets.xcassets */; };
 		3A2A3B771D22DF1F00B2E2D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A3B751D22DF1F00B2E2D4 /* LaunchScreen.storyboard */; };
 		3A2A3B821D22DF1F00B2E2D4 /* CGNYTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B811D22DF1F00B2E2D4 /* CGNYTests.m */; };
+		3A2A3B901D22DFC300B2E2D4 /* CGNYDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B8F1D22DFC300B2E2D4 /* CGNYDataService.m */; };
 		3A2A3B941D22E40300B2E2D4 /* NSJSONSerialization+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B931D22E40300B2E2D4 /* NSJSONSerialization+Additions.m */; };
 		3A2A3B9B1D2317D000B2E2D4 /* CGNYImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B9A1D2317D000B2E2D4 /* CGNYImageData.m */; };
 		3A2A3B9D1D23187800B2E2D4 /* CGNYImageData_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B9C1D23187800B2E2D4 /* CGNYImageData_Tests.m */; };
@@ -46,6 +47,8 @@
 		3A2A3B7D1D22DF1F00B2E2D4 /* CGNYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGNYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2A3B811D22DF1F00B2E2D4 /* CGNYTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGNYTests.m; sourceTree = "<group>"; };
 		3A2A3B831D22DF1F00B2E2D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A2A3B8E1D22DFC300B2E2D4 /* CGNYDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGNYDataService.h; sourceTree = "<group>"; };
+		3A2A3B8F1D22DFC300B2E2D4 /* CGNYDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGNYDataService.m; sourceTree = "<group>"; };
 		3A2A3B921D22E40300B2E2D4 /* NSJSONSerialization+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+Additions.h"; sourceTree = "<group>"; };
 		3A2A3B931D22E40300B2E2D4 /* NSJSONSerialization+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+Additions.m"; sourceTree = "<group>"; };
 		3A2A3B991D2317D000B2E2D4 /* CGNYImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGNYImageData.h; sourceTree = "<group>"; };
@@ -94,6 +97,7 @@
 			children = (
 				3A2A3B911D22E3F100B2E2D4 /* Categories */,
 				3A2A3B8D1D22DFA100B2E2D4 /* DataModels */,
+				3A2A3B8C1D22DF9800B2E2D4 /* Networking */,
 				3A2A3B671D22DF1E00B2E2D4 /* AppDelegate.h */,
 				3A2A3B681D22DF1E00B2E2D4 /* AppDelegate.m */,
 				3A2A3B6A1D22DF1E00B2E2D4 /* FirstViewController.h */,
@@ -125,6 +129,15 @@
 				3A2A3B9C1D23187800B2E2D4 /* CGNYImageData_Tests.m */,
 			);
 			path = CGNYTests;
+			sourceTree = "<group>";
+		};
+		3A2A3B8C1D22DF9800B2E2D4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3A2A3B8E1D22DFC300B2E2D4 /* CGNYDataService.h */,
+				3A2A3B8F1D22DFC300B2E2D4 /* CGNYDataService.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		3A2A3B8D1D22DFA100B2E2D4 /* DataModels */ = {
@@ -246,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2A3B9B1D2317D000B2E2D4 /* CGNYImageData.m in Sources */,
+				3A2A3B901D22DFC300B2E2D4 /* CGNYDataService.m in Sources */,
 				3A2A3B6F1D22DF1E00B2E2D4 /* SecondViewController.m in Sources */,
 				3A2A3B691D22DF1E00B2E2D4 /* AppDelegate.m in Sources */,
 				3A2A3B6C1D22DF1E00B2E2D4 /* FirstViewController.m in Sources */,
@@ -440,6 +454,7 @@
 				3A2A3B881D22DF1F00B2E2D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A2A3B891D22DF1F00B2E2D4 /* Build configuration list for PBXNativeTarget "CGNYTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +463,7 @@
 				3A2A3B8B1D22DF1F00B2E2D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
