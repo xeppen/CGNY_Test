@@ -10,4 +10,6 @@
 
 @interface NSJSONSerialization (Additions)
 
++ (id)JSONObjectWithData:(NSData *)data options:(NSJSONReadingOptions)opt error:(NSError **)error removeKeysWithNullValue:(BOOL)removeKeysWithNullValue;
+
 @end
