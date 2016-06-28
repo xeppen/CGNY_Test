@@ -24,6 +24,7 @@ NSString *flickrBaseAPIUrl = @"https://api.flickr.com/services/feeds/photos_publ
  */
 + (void) fetchImagesWithSearchString:(NSString *)search withCompletion:(void(^)(NSArray *imagesDataObjects, NSError *error))completion
 {
+    // Create url with parameters
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?format=json&nojsoncallback=1&tags=%@", flickrBaseAPIUrl, search]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
@@ -84,6 +85,46 @@ NSString *flickrBaseAPIUrl = @"https://api.flickr.com/services/feeds/photos_publ
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             completion([[NSArray alloc] initWithArray:arrayOfImageData], nil);
+        });
+        return;
+    }];
+    [task resume];
+}
+
+/**
+ *  API Path : Given by parameter input
+ *  Params : [
+ *               "tags"     Each picture has one or multiple tags which is used as search filter.
+ *               "format"   Static set to json
+ *           ]
+ */
++ (void) fetchImageFromUrl:(NSString *)imgUrl withCompletion:(void(^)(UIImage *image, NSError *error))completion
+{
+    // Create url
+    NSURL *url = [NSURL URLWithString:imgUrl];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    
+    NSLog(@"Image fetch url: %@", url);
+    
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+    
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error)
+        {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                completion(nil, error);
+            });
+            return;
+        }
+        
+        // Create image from data
+        UIImage *img = [[UIImage alloc] initWithData:data];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            completion(img, nil);
         });
         return;
     }];

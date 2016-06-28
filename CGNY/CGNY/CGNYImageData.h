@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface CGNYImageData : NSObject
 
 @property (nonatomic, strong) NSDictionary *dictionary;
 @property (nonatomic, strong) NSString *imgUrl;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) UIImage *image;
+
 
 -(instancetype)initWithDictionary: (NSDictionary *) dictionary;
 

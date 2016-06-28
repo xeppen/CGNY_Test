@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface CGNYDataService : NSObject
 
@@ -17,5 +18,13 @@
  * @param completion Block that is called when pictures have been fetched and parsed into picture data objects.
  */
 + (void) fetchImagesWithSearchString:(NSString *)search withCompletion:(void(^)(NSArray *imagesDataObjects, NSError *error))completion;
+
+/**
+ * Fetches pictures from url
+ *
+ * @param imgUrl     url to image
+ * @param completion Block that is called when picture have been fetched 
+ */
++ (void) fetchImageFromUrl:(NSString *)imgUrl withCompletion:(void(^)(UIImage *image, NSError *error))completion;
 
 @end
