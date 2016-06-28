@@ -10,4 +10,10 @@
 
 @interface CGNYImageData : NSObject
 
+@property (nonatomic, strong) NSDictionary *dictionary;
+@property (nonatomic, strong) NSString *imgUrl;
+@property (nonatomic, strong) NSString *title;
+
+-(instancetype)initWithDictionary: (NSDictionary *) dictionary;
+
 @end

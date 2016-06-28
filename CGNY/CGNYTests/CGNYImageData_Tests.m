@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "CGNYImageData.h"
 
 @interface CGNYImageData_Tests : XCTestCase
 
@@ -24,16 +25,21 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testInitWithDictionary {
+    NSDictionary *testDic = @{
+                                  @"media": @{
+                                      @"m": @"https://farm8.staticflickr.com/7320/27886023321_d4f4c1075a_m.jpg"
+                                      },
+                                  @"published": @"2016-06-28T17:47:32Z",
+                                  @"tags": @"cars different types of",
+                                  @"title": @"DIFFERENT TYPES OF CARS"
+                                  };
+    
+    CGNYImageData *testObject = [[CGNYImageData alloc] initWithDictionary:testDic];
+    
+    XCTAssertEqual(testObject.title, testDic[@"title"]);
+    XCTAssertEqual(testObject.imgUrl, testDic[@"media"][@"m"]);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
 
 @end
