@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="750" y="-538"/>
         </scene>
-        <!--CGNY Gallery-->
+        <!--Item-->
         <scene sceneID="tA3-aW-YCw">
             <objects>
                 <collectionViewController id="whB-iq-dYY" customClass="CGNYGalleryViewController" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="ASh-2v-Sfe"/>
-                    <navigationItem key="navigationItem" title="CGNY Gallery" id="I9y-5x-eMn"/>
+                    <navigationItem key="navigationItem" id="I9y-5x-eMn"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLR-lt-HfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

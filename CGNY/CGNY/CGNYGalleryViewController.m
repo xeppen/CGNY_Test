@@ -9,9 +9,10 @@
 #import "CGNYGalleryViewController.h"
 #import "CGNYDataService.h"
 
-@interface CGNYGalleryViewController () <UICollectionViewDataSource>
+@interface CGNYGalleryViewController () <UICollectionViewDataSource, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSArray *data;
+@property (nonatomic, strong) UISearchBar *searchBar;
 
 @end
 
@@ -25,15 +26,20 @@
     
     // Initialize recipe image array
     self.data = [NSArray array];
-    
-    [self fetchImages];
+    [self loadSearchBar];
+    [self fetchSearchedImages];
 }
 
 #pragma mark - Private actions
 
+-(void) fetchSearchedImages {
+    [self fetchImages];
+    [self.searchBar endEditing:YES];
+}
+
 -(void) fetchImages
 {
-    [CGNYDataService fetchImagesWithSearchString:@"cars" withCompletion:^(NSArray *imagesDataObjects, NSError *error) {
+    [CGNYDataService fetchImagesWithSearchString:self.searchBar.text.length > 0 ? self.searchBar.text : @"." withCompletion:^(NSArray *imagesDataObjects, NSError *error) {
         if(error)
         {
             #warning Handle error
@@ -42,6 +48,16 @@
         self.data = imagesDataObjects;
         [self.collectionView reloadData];
     }];
+}
+
+- (void)loadSearchBar
+{
+    self.searchBar = [[UISearchBar alloc] init];
+    [self.searchBar setSearchBarStyle:UISearchBarStyleMinimal];
+    self.searchBar.delegate = self;
+    self.searchBar.placeholder = @"Search for pictures";
+//    [[UITextField appearanceWhenContainedInInstancesOfClasses:[UISearchBar class]] setDefaultTextAttributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]}];
+    self.navigationItem.titleView = self.searchBar;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -61,4 +77,20 @@
     
     return cell;
 }
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self fetchSearchedImages];
+}
+
+- (void)searchBar:(UISearchBar *)bar textDidChange:(NSString *)searchText {
+    if([searchText length] == 0) {
+        [self.searchBar performSelector: @selector(resignFirstResponder)
+                             withObject: nil
+                             afterDelay: 2.0];
+    }
+}
+
 @end
