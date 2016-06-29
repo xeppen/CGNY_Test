@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CGNYGalleryViewController : UICollectionViewController
+@interface CGNYGalleryViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
 @end
