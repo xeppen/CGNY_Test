@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  CGNYGalleryViewController.h
 //  CGNY
 //
 //  Created by Sebastian Ljungberg on 28/06/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
-
+@interface CGNYGalleryViewController : UICollectionViewController
 
 @end
-

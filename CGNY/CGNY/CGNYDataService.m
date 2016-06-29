@@ -8,12 +8,14 @@
 
 #import "CGNYDataService.h"
 #import "NSJSONSerialization+Additions.h"
-#import "CGNYImageData.h"
 
 @implementation CGNYDataService
 
 
-NSString *flickrBaseAPIUrl = @"https://api.flickr.com/services/feeds/photos_public.gne";
+NSString *flickrBaseAPIUrl = @"https://api.flickr.com/services/rest/";
+
+NSString *apiKey = @"94f4230615f7c654c212a96cba25dd5f";
+NSInteger perPage = 20;
 
 /**
  *  API Path : https://api.flickr.com/services/feeds/photos_public.gne
@@ -25,7 +27,7 @@ NSString *flickrBaseAPIUrl = @"https://api.flickr.com/services/feeds/photos_publ
 + (void) fetchImagesWithSearchString:(NSString *)search withCompletion:(void(^)(NSArray *imagesDataObjects, NSError *error))completion
 {
     // Create url with parameters
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?format=json&nojsoncallback=1&tags=%@", flickrBaseAPIUrl, search]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?method=flickr.photos.search&api_key=%@&tags=%@&per_page=%li&format=json&nojsoncallback=1", flickrBaseAPIUrl, apiKey, search, (long)perPage]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
     NSLog(@"Fetch url: %@", url);
@@ -58,7 +60,7 @@ NSString *flickrBaseAPIUrl = @"https://api.flickr.com/services/feeds/photos_publ
         }
 
         // Error check if items is of wrong class.
-        if(![json[@"items"] isKindOfClass:[NSArray class]])
+        if(![json[@"photos"] isKindOfClass:[NSDictionary class]])
         {
             dispatch_sync(dispatch_get_main_queue(), ^{
                 completion(nil, [NSError errorWithDomain:@"CGNYDomain" code:1 userInfo:[NSDictionary dictionaryWithObject:@"Object has wrong data type" forKey:NSLocalizedDescriptionKey]]);
@@ -67,7 +69,7 @@ NSString *flickrBaseAPIUrl = @"https://api.flickr.com/services/feeds/photos_publ
         }
 
         // Error check if number of returned items is 0
-        NSArray *results = json[@"items"];
+        NSArray *results = json[@"photos"][@"photo"];
         if (results.count == 0) {
             dispatch_sync(dispatch_get_main_queue(), ^{
                 completion(nil, [NSError errorWithDomain:@"CGNYDomain" code:2 userInfo:[NSDictionary dictionaryWithObject:@"Result array is empty" forKey:NSLocalizedDescriptionKey]]);

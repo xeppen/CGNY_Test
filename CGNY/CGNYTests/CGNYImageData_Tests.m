@@ -27,18 +27,18 @@
 
 - (void)testInitWithDictionary {
     NSDictionary *testDic = @{
-                                  @"media": @{
-                                      @"m": @"https://farm8.staticflickr.com/7320/27886023321_d4f4c1075a_m.jpg"
-                                      },
-                                  @"published": @"2016-06-28T17:47:32Z",
-                                  @"tags": @"cars different types of",
-                                  @"title": @"DIFFERENT TYPES OF CARS"
-                                  };
+                              @"farm": @8,
+                              @"id": @27350153084,
+                              @"owner": @"41049565@N08",
+                              @"secret":  @"ab7a31df59",
+                              @"server":  @"7289",
+                              @"title": @"SEAT 850 E (1966) - ALTAYA"
+                              };
     
     CGNYImageData *testObject = [[CGNYImageData alloc] initWithDictionary:testDic];
     
     XCTAssertEqual(testObject.title, testDic[@"title"]);
-    XCTAssertEqual(testObject.imgUrl, testDic[@"media"][@"m"]);
+    XCTAssertTrue([testObject.imgUrl isEqualToString:@"https://farm8.staticflickr.com/7289/27350153084_ab7a31df59.jpg"]);
 }
 
 
