@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3A2A3B661D22DF1E00B2E2D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B651D22DF1E00B2E2D4 /* main.m */; };
 		3A2A3B691D22DF1E00B2E2D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B681D22DF1E00B2E2D4 /* AppDelegate.m */; };
-		3A2A3B6C1D22DF1E00B2E2D4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B6B1D22DF1E00B2E2D4 /* FirstViewController.m */; };
 		3A2A3B6F1D22DF1E00B2E2D4 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B6E1D22DF1E00B2E2D4 /* SecondViewController.m */; };
 		3A2A3B721D22DF1E00B2E2D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A3B701D22DF1E00B2E2D4 /* Main.storyboard */; };
 		3A2A3B741D22DF1F00B2E2D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A3B731D22DF1F00B2E2D4 /* Assets.xcassets */; };
@@ -19,6 +18,7 @@
 		3A2A3B941D22E40300B2E2D4 /* NSJSONSerialization+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B931D22E40300B2E2D4 /* NSJSONSerialization+Additions.m */; };
 		3A2A3B9B1D2317D000B2E2D4 /* CGNYImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B9A1D2317D000B2E2D4 /* CGNYImageData.m */; };
 		3A2A3B9D1D23187800B2E2D4 /* CGNYImageData_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B9C1D23187800B2E2D4 /* CGNYImageData_Tests.m */; };
+		3A5C8B651D232018001A3EC4 /* CGNYGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C8B641D232018001A3EC4 /* CGNYGalleryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +36,6 @@
 		3A2A3B651D22DF1E00B2E2D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A2A3B671D22DF1E00B2E2D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A2A3B681D22DF1E00B2E2D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3A2A3B6A1D22DF1E00B2E2D4 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		3A2A3B6B1D22DF1E00B2E2D4 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		3A2A3B6D1D22DF1E00B2E2D4 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		3A2A3B6E1D22DF1E00B2E2D4 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		3A2A3B711D22DF1E00B2E2D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +52,8 @@
 		3A2A3B991D2317D000B2E2D4 /* CGNYImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGNYImageData.h; sourceTree = "<group>"; };
 		3A2A3B9A1D2317D000B2E2D4 /* CGNYImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGNYImageData.m; sourceTree = "<group>"; };
 		3A2A3B9C1D23187800B2E2D4 /* CGNYImageData_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGNYImageData_Tests.m; sourceTree = "<group>"; };
+		3A5C8B631D232018001A3EC4 /* CGNYGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGNYGalleryViewController.h; sourceTree = "<group>"; };
+		3A5C8B641D232018001A3EC4 /* CGNYGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGNYGalleryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +100,8 @@
 				3A2A3B8C1D22DF9800B2E2D4 /* Networking */,
 				3A2A3B671D22DF1E00B2E2D4 /* AppDelegate.h */,
 				3A2A3B681D22DF1E00B2E2D4 /* AppDelegate.m */,
-				3A2A3B6A1D22DF1E00B2E2D4 /* FirstViewController.h */,
-				3A2A3B6B1D22DF1E00B2E2D4 /* FirstViewController.m */,
+				3A5C8B631D232018001A3EC4 /* CGNYGalleryViewController.h */,
+				3A5C8B641D232018001A3EC4 /* CGNYGalleryViewController.m */,
 				3A2A3B6D1D22DF1E00B2E2D4 /* SecondViewController.h */,
 				3A2A3B6E1D22DF1E00B2E2D4 /* SecondViewController.m */,
 				3A2A3B701D22DF1E00B2E2D4 /* Main.storyboard */,
@@ -262,7 +262,7 @@
 				3A2A3B901D22DFC300B2E2D4 /* CGNYDataService.m in Sources */,
 				3A2A3B6F1D22DF1E00B2E2D4 /* SecondViewController.m in Sources */,
 				3A2A3B691D22DF1E00B2E2D4 /* AppDelegate.m in Sources */,
-				3A2A3B6C1D22DF1E00B2E2D4 /* FirstViewController.m in Sources */,
+				3A5C8B651D232018001A3EC4 /* CGNYGalleryViewController.m in Sources */,
 				3A2A3B661D22DF1E00B2E2D4 /* main.m in Sources */,
 				3A2A3B941D22E40300B2E2D4 /* NSJSONSerialization+Additions.m in Sources */,
 			);
