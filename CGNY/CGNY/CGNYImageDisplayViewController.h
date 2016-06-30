@@ -12,6 +12,6 @@
 @interface CGNYImageDisplayViewController : UIViewController
 
 @property (nonatomic, strong) CGNYImageData *data;
-@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet UIImageView *imageView;
 
 @end
