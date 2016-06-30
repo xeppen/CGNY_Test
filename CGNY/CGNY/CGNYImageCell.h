@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGNYImageData.h"
 
 @interface CGNYImageCell : UICollectionViewCell
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) CGNYImageData *data;
 
 @end

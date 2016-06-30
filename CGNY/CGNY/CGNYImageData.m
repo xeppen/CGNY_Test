@@ -7,7 +7,6 @@
 //
 
 #import "CGNYImageData.h"
-#import "CGNYDataService.h"
 
 @implementation CGNYImageData
 
@@ -37,14 +36,6 @@
 -(void)setImgUrl:(NSString *)imgUrl
 {
     _imgUrl = imgUrl;
-    [CGNYDataService fetchImageFromUrl:imgUrl withCompletion:^(UIImage *image, NSError *error) {
-        if(error)
-        {
-            NSLog(@"Error: %@", error.localizedDescription);
-            return;
-        }
-        self.image = image;
-    }];
 }
 
 #pragma mark - Private actions

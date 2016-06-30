@@ -58,6 +58,8 @@
 #pragma mark - Private actions
 
 -(void) fetchSearchedImages {
+    self.data = @[];
+    [self.collectionView reloadData];
     self.loadingIndicator.hidden = FALSE;
     [self.loadingIndicator.activityView startAnimating];
     [self fetchImages];
@@ -105,8 +107,7 @@
     static NSString *identifier = @"CGNYImageCell";
     
     CGNYImageCell *cell = (CGNYImageCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
-    cell.imageView.image = [(CGNYImageData*)[self.data objectAtIndex:indexPath.row] image];
+    cell.data = [self.data objectAtIndex:indexPath.row];
     return cell;
 }
 
