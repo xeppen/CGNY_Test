@@ -8,7 +8,7 @@
 
 #import "CGNYImageDisplayViewController.h"
 
-@interface CGNYImageDisplayViewController ()
+@interface CGNYImageDisplayViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIImageView *imageView;
 @end
@@ -43,5 +43,12 @@
 -(void)setData:(CGNYImageData *)data
 {
     _data = data;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+-(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
 }
 @end
