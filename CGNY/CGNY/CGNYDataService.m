@@ -106,8 +106,6 @@ NSInteger perPage = 20;
     NSURL *url = [NSURL URLWithString:imgUrl];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
-    NSLog(@"Image fetch url: %@", url);
-    
     [request setHTTPMethod:@"GET"];
     
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A14F4D01D2458FA001AD319 /* CGNYImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A14F4CF1D2458FA001AD319 /* CGNYImageCell.m */; };
 		3A2A3B661D22DF1E00B2E2D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B651D22DF1E00B2E2D4 /* main.m */; };
 		3A2A3B691D22DF1E00B2E2D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B681D22DF1E00B2E2D4 /* AppDelegate.m */; };
 		3A2A3B6F1D22DF1E00B2E2D4 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B6E1D22DF1E00B2E2D4 /* SecondViewController.m */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A14F4CE1D2458FA001AD319 /* CGNYImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGNYImageCell.h; sourceTree = "<group>"; };
+		3A14F4CF1D2458FA001AD319 /* CGNYImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGNYImageCell.m; sourceTree = "<group>"; };
 		3A2A3B611D22DF1E00B2E2D4 /* CGNY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGNY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2A3B651D22DF1E00B2E2D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A2A3B671D22DF1E00B2E2D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A14F4CD1D24519C001AD319 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A14F4CE1D2458FA001AD319 /* CGNYImageCell.h */,
+				3A14F4CF1D2458FA001AD319 /* CGNYImageCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		3A2A3B581D22DF1E00B2E2D4 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +107,7 @@
 		3A2A3B631D22DF1E00B2E2D4 /* CGNY */ = {
 			isa = PBXGroup;
 			children = (
+				3A14F4CD1D24519C001AD319 /* Views */,
 				3A2A3B911D22E3F100B2E2D4 /* Categories */,
 				3A2A3B8D1D22DFA100B2E2D4 /* DataModels */,
 				3A2A3B8C1D22DF9800B2E2D4 /* Networking */,
@@ -263,6 +276,7 @@
 				3A2A3B6F1D22DF1E00B2E2D4 /* SecondViewController.m in Sources */,
 				3A2A3B691D22DF1E00B2E2D4 /* AppDelegate.m in Sources */,
 				3A5C8B651D232018001A3EC4 /* CGNYGalleryViewController.m in Sources */,
+				3A14F4D01D2458FA001AD319 /* CGNYImageCell.m in Sources */,
 				3A2A3B661D22DF1E00B2E2D4 /* main.m in Sources */,
 				3A2A3B941D22E40300B2E2D4 /* NSJSONSerialization+Additions.m in Sources */,
 			);
@@ -397,6 +411,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xeppen.CGNY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -408,6 +423,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xeppen.CGNY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
