@@ -19,6 +19,8 @@
 
 @implementation CGNYGalleryViewController
 
+NSString *searchArrayIdentifier = @"CYGNSearchArray";
+
 #pragma mark - Initialization
 
 - (void)viewDidLoad
@@ -44,6 +46,7 @@
 -(void) fetchSearchedImages {
     self.data = @[];
     [self.collectionView reloadData];
+    [self saveSearchString];
     [self fetchImages];
     [self.searchBar endEditing:YES];
 }
@@ -84,6 +87,22 @@
             }
         }
     }
+}
+
+-(void) saveSearchString
+{
+    NSString *searchString = self.searchBar.text;
+    
+    // Read
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *searchTermArray = [defaults objectForKey:searchArrayIdentifier];
+    
+    // Make mutable copy
+    NSMutableArray *mutableSearchTermArray = [searchTermArray mutableCopy];
+    [mutableSearchTermArray addObject:searchString];
+    
+    // Save
+    [defaults setObject:[[NSArray alloc] initWithArray:mutableSearchTermArray] forKey:searchArrayIdentifier];
 }
 
 #pragma mark - UICollectionViewDataSource
