@@ -13,6 +13,7 @@
 		3A14F4D81D258658001AD319 /* CGNYSearchTermTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A14F4D71D258658001AD319 /* CGNYSearchTermTableViewController.m */; };
 		3A14F4DA1D25932C001AD319 /* CGNYDataService_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A14F4D91D25932C001AD319 /* CGNYDataService_Tests.m */; };
 		3A14F4DD1D259399001AD319 /* sampleFetchPhotos.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A14F4DC1D259399001AD319 /* sampleFetchPhotos.json */; };
+		3A14F4E11D25A3ED001AD319 /* sampleFetchError.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A14F4E01D25A3ED001AD319 /* sampleFetchError.json */; };
 		3A2A3B661D22DF1E00B2E2D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B651D22DF1E00B2E2D4 /* main.m */; };
 		3A2A3B691D22DF1E00B2E2D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B681D22DF1E00B2E2D4 /* AppDelegate.m */; };
 		3A2A3B721D22DF1E00B2E2D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A2A3B701D22DF1E00B2E2D4 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		3A14F4D71D258658001AD319 /* CGNYSearchTermTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGNYSearchTermTableViewController.m; sourceTree = "<group>"; };
 		3A14F4D91D25932C001AD319 /* CGNYDataService_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGNYDataService_Tests.m; sourceTree = "<group>"; };
 		3A14F4DC1D259399001AD319 /* sampleFetchPhotos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleFetchPhotos.json; sourceTree = "<group>"; };
+		3A14F4E01D25A3ED001AD319 /* sampleFetchError.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleFetchError.json; sourceTree = "<group>"; };
 		3A2A3B611D22DF1E00B2E2D4 /* CGNY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGNY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2A3B651D22DF1E00B2E2D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A2A3B671D22DF1E00B2E2D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				3A14F4DC1D259399001AD319 /* sampleFetchPhotos.json */,
+				3A14F4E01D25A3ED001AD319 /* sampleFetchError.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A14F4DD1D259399001AD319 /* sampleFetchPhotos.json in Resources */,
+				3A14F4E11D25A3ED001AD319 /* sampleFetchError.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

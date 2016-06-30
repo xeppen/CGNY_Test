@@ -66,5 +66,45 @@
     }];
 }
 
+- (void)testSampleFetchError {
+    
+    XCTestExpectation *fetchCompletionExpectation =
+    [self expectationWithDescription:@"Successfully handled network error!"];
+    
+    // Mock Session
+    // Creates an NSURLSession instance that shall be used in the service.
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    id myMockedURLSession = OCMPartialMock(session);
+    
+    OCMStub([myMockedURLSession dataTaskWithRequest:[OCMArg any] completionHandler:[OCMArg any]]).andDo(^(NSInvocation *invocation){
+        
+        __block void (^completion)(NSData *data, NSURLResponse *response, NSError *error);
+        
+        // Get second argument
+        [invocation getArgument:&completion atIndex:3];
+        NSData *testData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"sampleFetchError" ofType:@"json"]];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            completion(testData, nil, nil);
+        });
+    });
+    
+    // Mock class
+    // Mocking the class to return our mocked session to be returned in our static method in the service.
+    id myMockedSessionClass = OCMClassMock([NSURLSession class]);
+    
+    OCMStub([myMockedSessionClass sessionWithConfiguration: [OCMArg any]]).andReturn(myMockedURLSession);
+    
+    [CGNYDataService fetchImagesWithSearchString:@"" withCompletion:^(NSArray *imagesDataObjects, NSError *error) {
+        if(error)
+            [fetchCompletionExpectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:10 handler:^(NSError *error) {
+        // Stop mocking
+        [myMockedSessionClass stopMocking];
+    }];
+}
+
 
 @end
