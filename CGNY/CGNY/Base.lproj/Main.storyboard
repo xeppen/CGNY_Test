@@ -45,20 +45,27 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ErX-Yg-F0h">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="l7T-i6-Pe1">
+                                            <rect key="frame" x="90" y="90" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ErX-Yg-F0h">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="l7T-i6-Pe1" firstAttribute="centerX" secondItem="ORN-OE-Ksh" secondAttribute="centerX" id="JaT-Gz-1uz"/>
                                     <constraint firstItem="ErX-Yg-F0h" firstAttribute="centerY" secondItem="ORN-OE-Ksh" secondAttribute="centerY" id="OXq-yz-QN4"/>
+                                    <constraint firstItem="l7T-i6-Pe1" firstAttribute="centerY" secondItem="ORN-OE-Ksh" secondAttribute="centerY" id="VjU-NR-ySf"/>
                                     <constraint firstItem="ErX-Yg-F0h" firstAttribute="height" secondItem="ORN-OE-Ksh" secondAttribute="height" id="Wqu-q5-WTy"/>
                                     <constraint firstItem="ErX-Yg-F0h" firstAttribute="centerX" secondItem="ORN-OE-Ksh" secondAttribute="centerX" id="Y6N-T3-gx7"/>
                                     <constraint firstItem="ErX-Yg-F0h" firstAttribute="width" secondItem="ORN-OE-Ksh" secondAttribute="width" id="cov-45-DsY"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="ErX-Yg-F0h" id="8n3-6U-Hc4"/>
+                                    <outlet property="spinner" destination="l7T-i6-Pe1" id="MPE-ky-Gyp"/>
+                                    <segue destination="iLs-am-qRN" kind="show" identifier="CGNYImageViewSegue" id="xQ2-dc-ug5"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -74,6 +81,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2H-cW-hTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1522" y="-535"/>
+        </scene>
+        <!--Image Display View Controller-->
+        <scene sceneID="4ih-tK-ilF">
+            <objects>
+                <viewController id="iLs-am-qRN" customClass="CGNYImageDisplayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v7s-Zb-axX"/>
+                        <viewControllerLayoutGuide type="bottom" id="xh0-Mo-W0o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7lx-AO-2HA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="3" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHZ-Yn-7eL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="iLs-am-qRN" id="HRm-9H-SzB"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GHZ-Yn-7eL" firstAttribute="height" secondItem="7lx-AO-2HA" secondAttribute="height" id="0TS-0A-MpX"/>
+                            <constraint firstItem="GHZ-Yn-7eL" firstAttribute="width" secondItem="7lx-AO-2HA" secondAttribute="width" id="0Xv-yz-6tK"/>
+                            <constraint firstItem="GHZ-Yn-7eL" firstAttribute="centerX" secondItem="7lx-AO-2HA" secondAttribute="centerX" id="2i6-pt-tqh"/>
+                            <constraint firstItem="GHZ-Yn-7eL" firstAttribute="centerY" secondItem="7lx-AO-2HA" secondAttribute="centerY" id="pD6-DV-cs4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="GHZ-Yn-7eL" id="x96-qu-EMR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7dZ-IU-mMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2302" y="-535"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
