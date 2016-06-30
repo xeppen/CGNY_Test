@@ -24,6 +24,10 @@
     
     self.navigationItem.title = @"Past search terms";
     
+    // Set DZNEmptyDataSetSource
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     // Add navigation bar button
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStylePlain target:self action:@selector(clearSearchTermArray)];
     self.navigationItem.rightBarButtonItem = anotherButton;
@@ -72,5 +76,12 @@
     cell.textLabel.text = [self.searchTerms objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+#pragma mark - DZNEmptyDataSetSource
+
+-(UIImage *) imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"no_search_terms"];
 }
 @end

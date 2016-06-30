@@ -10,8 +10,9 @@
 #import "CGNYDataService.h"
 #import "CGNYImageCell.h"
 #import "UIView+Toast.h"
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface CGNYGalleryViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
+@interface CGNYGalleryViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, DZNEmptyDataSetSource>
 
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) UISearchBar *searchBar;
@@ -28,13 +29,17 @@ NSString *searchArrayIdentifier = @"CGNYSearchArray";
 {
     [super viewDidLoad];
     
-    // Register custom cell class
-    //[self.collectionView registerNib:[UINib nibWithNibName:@"MyCell" bundle:nil] forCellWithReuseIdentifier:@"CELL"];
+    // Set datasource for
+    self.collectionView.emptyDataSetSource = self;
     
     // Initialize recipe image array
     self.data = [NSArray array];
     [self loadSearchBar];
     [self fetchSearchedImages];
+    
+    // Add no photos image
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"no_images"]];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -59,7 +64,15 @@ NSString *searchArrayIdentifier = @"CGNYSearchArray";
         {
             // Show error
             [self.view makeToast:@"There is an error fetching photo data!"
-                        duration:3.0
+                        duration:2.0
+                        position:CSToastPositionBottom
+                           style:[[CSToastStyle alloc] initWithDefaultStyle]];
+        }
+        
+        if(imagesDataObjects.count == 0)
+        {
+            [self.view makeToast:@"There are no pictures that match that search term!"
+                        duration:2.0
                         position:CSToastPositionBottom
                            style:[[CSToastStyle alloc] initWithDefaultStyle]];
         }
@@ -149,6 +162,13 @@ NSString *searchArrayIdentifier = @"CGNYSearchArray";
                              withObject: nil
                              afterDelay: 2.0];
     }
+}
+
+#pragma mark - DZNEmptyDataSetSource
+
+-(UIImage *) imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"no_images"];
 }
 
 @end

@@ -26,8 +26,11 @@ NSInteger perPage = 20;
  */
 + (void) fetchImagesWithSearchString:(NSString *)search withCompletion:(void(^)(NSArray *imagesDataObjects, NSError *error))completion
 {
+    // If multiple words in search string, replace space with comma
+    NSString *tags = [search stringByReplacingOccurrencesOfString:@" " withString:@","];
+    
     // Create url with parameters
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?method=flickr.photos.search&api_key=%@&tags=%@&per_page=%li&format=json&nojsoncallback=1", flickrBaseAPIUrl, apiKey, search, (long)perPage]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?method=flickr.photos.search&api_key=%@&tags=%@&per_page=%li&format=json&nojsoncallback=1", flickrBaseAPIUrl, apiKey, tags, (long)perPage]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
     NSLog(@"Fetch url: %@", url);

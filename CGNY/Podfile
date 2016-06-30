@@ -6,6 +6,7 @@ target 'CGNY' do
   # use_frameworks!
 
   pod 'Toast', '~> 3.0'
+  pod 'DZNEmptyDataSet'
 
   target 'CGNYTests' do
     inherit! :search_paths

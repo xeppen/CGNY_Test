@@ -1,15 +1,18 @@
 PODS:
+  - DZNEmptyDataSet (1.8.1)
   - OCMock (3.1.5)
   - Toast (3.0)
 
 DEPENDENCIES:
+  - DZNEmptyDataSet
   - OCMock (~> 3.1.5)
   - Toast (~> 3.0)
 
 SPEC CHECKSUMS:
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   OCMock: 4c2925291f80407c3738dd1db14d21d0cc278864
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
 
-PODFILE CHECKSUM: 6e82d99cbc6f87eef70dee5b7637abeedb4c026d
+PODFILE CHECKSUM: 44b490b5dcd21b035deefc7bd6c94880747fd7b5
 
 COCOAPODS: 1.0.0

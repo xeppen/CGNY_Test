@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface CGNYSearchTermTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface CGNYSearchTermTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource>
 
 @end
