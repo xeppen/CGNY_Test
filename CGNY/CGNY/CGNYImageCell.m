@@ -27,12 +27,14 @@
     if(!self.data.image){
         [self.spinner startAnimating];
         [CGNYDataService fetchImageFromUrl:self.data.imgUrl withCompletion:^(UIImage *image, NSError *error) {
-            [self.spinner stopAnimating];
             if(error)
             {
                 NSLog(@"Error: %@", error.localizedDescription);
                 return;
             }
+            [self.spinner stopAnimating];
+            
+            // Fade in image
             self.data.image = image;
             [self.imageView setAlpha:0.0];
             [UIView beginAnimations:nil context:NULL];
