@@ -12,6 +12,7 @@
 @interface CGNYImageCell : UICollectionViewCell
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *spinner;
 @property (nonatomic, strong) CGNYImageData *data;
 
 @end

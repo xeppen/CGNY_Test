@@ -25,14 +25,9 @@
 -(void) loadImage
 {
     if(!self.data.image){
-        __block UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-        [self.contentView addSubview:spinner];
-        spinner.center = self.center;
-        spinner.hidesWhenStopped = TRUE;
-        spinner.hidden = NO;
-        [spinner startAnimating];
+        [self.spinner startAnimating];
         [CGNYDataService fetchImageFromUrl:self.data.imgUrl withCompletion:^(UIImage *image, NSError *error) {
-            [spinner stopAnimating];
+            [self.spinner stopAnimating];
             if(error)
             {
                 NSLog(@"Error: %@", error.localizedDescription);
@@ -46,8 +41,6 @@
             [UIView commitAnimations];
             self.imageView.image = image;
             
-            // Stop spinner
-            // Reload cell
         }];
     }
 }
