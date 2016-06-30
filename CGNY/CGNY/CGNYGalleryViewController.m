@@ -9,6 +9,7 @@
 #import "CGNYGalleryViewController.h"
 #import "CGNYDataService.h"
 #import "CGNYImageCell.h"
+#import "UIView+Toast.h"
 
 @interface CGNYGalleryViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 
@@ -56,7 +57,11 @@ NSString *searchArrayIdentifier = @"CYGNSearchArray";
     [CGNYDataService fetchImagesWithSearchString:self.searchBar.text.length > 0 ? self.searchBar.text : @"." withCompletion:^(NSArray *imagesDataObjects, NSError *error) {
         if(error)
         {
-            #warning Handle error
+            // Show error
+            [self.view makeToast:@"There is an error fetching photo data!"
+                        duration:3.0
+                        position:CSToastPositionBottom
+                           style:[[CSToastStyle alloc] initWithDefaultStyle]];
         }
         
         self.data = imagesDataObjects;
