@@ -15,35 +15,45 @@
 
 -(void)setData:(CGNYImageData *)data
 {
-    _data = data;
-
-    [self loadImage];
+    if(_data != data){
+        _data = data;
+        self.imageView.image = nil;
+        [self loadImage];
+    }
 }
 
 #pragma mark - Private actions
 
 -(void) loadImage
 {
-    if(!self.data.image){
-        [self.spinner startAnimating];
-        [CGNYDataService fetchImageFromUrl:self.data.imgUrl withCompletion:^(UIImage *image, NSError *error) {
-            if(error)
-            {
-                NSLog(@"Error: %@", error.localizedDescription);
-                return;
-            }
-            [self.spinner stopAnimating];
-            
-            // Fade in image
-            self.data.image = image;
-            [self.imageView setAlpha:0.0];
-            [UIView beginAnimations:nil context:NULL];
-            [UIView setAnimationDuration:0.5];
-            [self.imageView setAlpha:1.0];
-            [UIView commitAnimations];
-            self.imageView.image = image;
-            
-        }];
+    if(self.data.image){
+        [self setImage:self.data.image];
+        return;
     }
+    
+    [self.spinner startAnimating];
+    [CGNYDataService fetchImageFromUrl:self.data.imgUrl withCompletion:^(UIImage *image, NSError *error) {
+        if(error)
+        {
+            NSLog(@"Error: %@", error.localizedDescription);
+            return;
+        }
+        [self.spinner stopAnimating];
+        
+        // Fade in image
+        self.data.image = image;
+        [self setImage:image];
+        
+    }];
+}
+
+-(void) setImage:(UIImage*)image
+{
+    [self.imageView setAlpha:0.0];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.5];
+    [self.imageView setAlpha:1.0];
+    [UIView commitAnimations];
+    self.imageView.image = image;
 }
 @end
