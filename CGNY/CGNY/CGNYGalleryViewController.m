@@ -20,7 +20,7 @@
 
 @implementation CGNYGalleryViewController
 
-NSString *searchArrayIdentifier = @"CYGNSearchArray";
+NSString *searchArrayIdentifier = @"CGNYSearchArray";
 
 #pragma mark - Initialization
 
@@ -97,6 +97,10 @@ NSString *searchArrayIdentifier = @"CYGNSearchArray";
 -(void) saveSearchString
 {
     NSString *searchString = self.searchBar.text;
+    
+    // Check if empty search is done.
+    if(searchString.length == 0)
+        return;
     
     // Read
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

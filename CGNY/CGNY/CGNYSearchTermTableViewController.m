@@ -7,6 +7,7 @@
 //
 
 #import "CGNYSearchTermTableViewController.h"
+#import "UIView+Toast.h"
 
 @interface CGNYSearchTermTableViewController ()
 
@@ -17,10 +18,59 @@
 
 #pragma mark - Initialization
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.navigationItem.title = @"Past search terms";
+    
+    // Add navigation bar button
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStylePlain target:self action:@selector(clearSearchTermArray)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // Fetch search term array
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.searchTerms = [defaults objectForKey:@"CGNYSearchArray"] ? : @[];
+    [self.tableView reloadData];
+}
+
+#pragma mark - Private actions
+
+-(void) clearSearchTermArray
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@[] forKey:@"CGNYSearchArray"];
+    self.searchTerms = @[];
+    [self.tableView reloadData];
+    
+    // Display msg to user
+    [self.view makeToast:@"Past search terms have been cleared."
+                duration:2.0
+                position:CSToastPositionTop];
+}
+
 #pragma mark - UITableViewDatasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.searchTerms.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    }
+    
+    cell.textLabel.text = [self.searchTerms objectAtIndex:indexPath.row];
+    
+    return cell;
 }
 @end
