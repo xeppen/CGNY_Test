@@ -24,19 +24,31 @@
 
 -(void) loadImage
 {
-    // Show spinner
-    [CGNYDataService fetchImageFromUrl:self.data.imgUrl withCompletion:^(UIImage *image, NSError *error) {
-        if(error)
-        {
-            NSLog(@"Error: %@", error.localizedDescription);
-            return;
-        }
-        self.data.image = image;
-        // Animation
-        self.imageView.image = image;
-        
-        // Stop spinner
-        // Reload cell
-    }];
+    if(!self.data.image){
+        __block UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        [self.contentView addSubview:spinner];
+        spinner.center = self.center;
+        spinner.hidesWhenStopped = TRUE;
+        spinner.hidden = NO;
+        [spinner startAnimating];
+        [CGNYDataService fetchImageFromUrl:self.data.imgUrl withCompletion:^(UIImage *image, NSError *error) {
+            [spinner stopAnimating];
+            if(error)
+            {
+                NSLog(@"Error: %@", error.localizedDescription);
+                return;
+            }
+            self.data.image = image;
+            [self.imageView setAlpha:0.0];
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:0.5];
+            [self.imageView setAlpha:1.0];
+            [UIView commitAnimations];
+            self.imageView.image = image;
+            
+            // Stop spinner
+            // Reload cell
+        }];
+    }
 }
 @end

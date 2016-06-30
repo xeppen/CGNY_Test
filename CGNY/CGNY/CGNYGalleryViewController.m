@@ -8,14 +8,12 @@
 
 #import "CGNYGalleryViewController.h"
 #import "CGNYDataService.h"
-#import "CGNYLoadingIndicator.h"
 #import "CGNYImageCell.h"
 
 @interface CGNYGalleryViewController () <UICollectionViewDataSource, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) UISearchBar *searchBar;
-@property (nonatomic, strong) CGNYLoadingIndicator *loadingIndicator;
 
 @end
 
@@ -39,20 +37,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    self.loadingIndicator = [[CGNYLoadingIndicator alloc] initWithFrame:CGRectMake(20, 20, 200, 30)];
-    self.loadingIndicator.backgroundColor = [UIColor redColor];
-    [self.view addSubview:self.loadingIndicator];
-    
-//    self.loadingIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-//    self.loadingIndicator.hidesWhenStopped = YES;
-//    self.loadingIndicator.hidden = NO;
-//    self.loadingIndicator.tintColor = [UIColor darkGrayColor];
-//    self.loadingIndicator.transform = CGAffineTransformMakeScale(1.5, 1.5);
-//    self.loadingIndicator.backgroundColor = [UIColor redColor];
-//    self.loadingIndicator.center = CGPointMake(self.view.center.x, self.view.center.y-80);
-//    [self.collectionView addSubview:self.loadingIndicator];
-//    [self.collectionView bringSubviewToFront:self.loadingIndicator];
 }
 
 #pragma mark - Private actions
@@ -60,8 +44,6 @@
 -(void) fetchSearchedImages {
     self.data = @[];
     [self.collectionView reloadData];
-    self.loadingIndicator.hidden = FALSE;
-    [self.loadingIndicator.activityView startAnimating];
     [self fetchImages];
     [self.searchBar endEditing:YES];
 }
@@ -69,8 +51,6 @@
 -(void) fetchImages
 {
     [CGNYDataService fetchImagesWithSearchString:self.searchBar.text.length > 0 ? self.searchBar.text : @"." withCompletion:^(NSArray *imagesDataObjects, NSError *error) {
-        [self.loadingIndicator.activityView stopAnimating];
-        self.loadingIndicator.hidden = YES;
         if(error)
         {
             #warning Handle error
