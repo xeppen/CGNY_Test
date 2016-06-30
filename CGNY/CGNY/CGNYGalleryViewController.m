@@ -49,6 +49,9 @@ NSString *searchArrayIdentifier = @"CGNYSearchArray";
 
 #pragma mark - Private actions
 
+/**
+ *  Uses the search text to fetch new images
+ */
 -(void) fetchSearchedImages {
     self.data = @[];
     [self.collectionView reloadData];
@@ -57,6 +60,9 @@ NSString *searchArrayIdentifier = @"CGNYSearchArray";
     [self.searchBar endEditing:YES];
 }
 
+/**
+ *  Give the data service order to fetch images
+ */
 -(void) fetchImages
 {
     [CGNYDataService fetchImagesWithSearchString:self.searchBar.text.length > 0 ? self.searchBar.text : @"." withCompletion:^(NSArray *imagesDataObjects, NSError *error) {
@@ -86,6 +92,9 @@ NSString *searchArrayIdentifier = @"CGNYSearchArray";
     }];
 }
 
+/**
+ *  Load a UISearchBar and do minor configurations
+ */
 - (void)loadSearchBar
 {
     self.searchBar = [[UISearchBar alloc] init];
@@ -95,6 +104,12 @@ NSString *searchArrayIdentifier = @"CGNYSearchArray";
     self.navigationItem.titleView = self.searchBar;
 }
 
+/**
+ *  Make a transition to the view controller to display a bigger version. Also sets the data model to the view controller.
+ *
+ *  @param segue  transition segues
+ *  @param sender collection view origin cell
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([sender isKindOfClass:[CGNYImageCell class]]) {
@@ -107,6 +122,9 @@ NSString *searchArrayIdentifier = @"CGNYSearchArray";
     }
 }
 
+/**
+ *  Store the search string in NSUserDefaults
+ */
 -(void) saveSearchString
 {
     NSString *searchString = self.searchBar.text;
@@ -143,12 +161,6 @@ NSString *searchArrayIdentifier = @"CGNYSearchArray";
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    //retrieve image from your array
-    //push new view controller/perform segue with image
-}
-
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -161,6 +173,7 @@ NSString *searchArrayIdentifier = @"CGNYSearchArray";
         [self.searchBar performSelector: @selector(resignFirstResponder)
                              withObject: nil
                              afterDelay: 2.0];
+        [self fetchSearchedImages];
     }
 }
 

@@ -24,6 +24,9 @@
 
 #pragma mark - Private actions
 
+/**
+ *  When new data model is set, the image is fetched from the generated url and set to imageview
+ */
 -(void) loadImage
 {
     if(self.data.image){
@@ -47,6 +50,11 @@
     }];
 }
 
+/**
+ *  Set the image to the imageview with a fade in animation
+ *
+ *  @param image Image to be set to imageView
+ */
 -(void) setImage:(UIImage*)image
 {
     [self.imageView setAlpha:0.0];

@@ -38,13 +38,6 @@
 //    self.imageView.center = CGPointMake(self.imageView.center.x, self.imageView.center.y - self.tabBarController.tabBar.frame.size.height - self.navigationController.navigationBar.frame.size.height - 30);
 }
 
-#pragma mark - Setter
-
--(void)setData:(CGNYImageData *)data
-{
-    _data = data;
-}
-
 #pragma mark - UIScrollViewDelegate
 
 -(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView

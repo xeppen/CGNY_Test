@@ -5,6 +5,8 @@
 //  Created by Sebastian Ljungberg on 28/06/16.
 //  Copyright © 2016 Xeppen Productions. All rights reserved.
 //
+//  Class to handle network connections to Flickr API
+//
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>

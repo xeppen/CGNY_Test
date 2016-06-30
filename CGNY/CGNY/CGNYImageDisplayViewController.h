@@ -5,6 +5,8 @@
 //  Created by Sebastian Ljungberg on 30/06/16.
 //  Copyright © 2016 Xeppen Productions. All rights reserved.
 //
+//  ViewController to display a bigger version of selected image.
+//
 
 #import <UIKit/UIKit.h>
 #import "CGNYImageData.h"

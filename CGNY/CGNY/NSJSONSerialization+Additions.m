@@ -1,9 +1,10 @@
 //
 //  NSJSONSerialization+Additions.m
-//  CGNY
 //
 //  Created by Sebastian Ljungberg on 28/06/16.
 //  Copyright © 2016 Xeppen Productions. All rights reserved.
+//
+//  Helper method to remove keys with null value.
 //
 
 #import "NSJSONSerialization+Additions.h"

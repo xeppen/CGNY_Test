@@ -4,7 +4,7 @@
 //
 //  Created by Sebastian Ljungberg on 30/06/16.
 //  Copyright © 2016 Xeppen Productions. All rights reserved.
-//
+
 
 #import "CGNYSearchTermTableViewController.h"
 #import "UIView+Toast.h"
@@ -45,6 +45,9 @@
 
 #pragma mark - Private actions
 
+/**
+ *  Clear the array of search terms
+ */
 -(void) clearSearchTermArray
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

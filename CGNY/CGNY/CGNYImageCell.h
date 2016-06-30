@@ -11,8 +11,15 @@
 
 @interface CGNYImageCell : UICollectionViewCell
 
+/**
+ *  Image cell properties
+ */
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *spinner;
+
+/**
+ *  Property to store the image data model object
+ */
 @property (nonatomic, strong) CGNYImageData *data;
 
 @end

@@ -12,7 +12,7 @@
 
 #pragma mark - Initializers
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
+- (instancetype) initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     if (self) {
@@ -23,7 +23,7 @@
 
 #pragma mark - Setters
 
-- (void)setDictionary:(NSDictionary *)dictionary
+- (void) setDictionary:(NSDictionary *)dictionary
 {
     NSString *farm = dictionary[@"farm"] ? : @"";
     NSString *serverId = dictionary[@"server"] ? : @"";
@@ -33,13 +33,23 @@
     self.title = dictionary[@"title"] ? : @"";
 }
 
--(void)setImgUrl:(NSString *)imgUrl
+-(void) setImgUrl:(NSString *)imgUrl
 {
     _imgUrl = imgUrl;
 }
 
 #pragma mark - Private actions
 
+/**
+ *  Builds the image url based on the parameters.
+ *
+ *  @param farm     farm id
+ *  @param serverId server id
+ *  @param id       image id
+ *  @param secret   image secret
+ *
+ *  @return the image url
+ */
 -(NSString *) buildImageUrlFromFarm:(NSString *)farm andServerId:(NSString*)serverId andId:(NSString *)id andSecret:(NSString *)secret
 {
     return [NSString stringWithFormat:@"https://farm%@.staticflickr.com/%@/%@_%@.jpg", farm, serverId, id, secret];
