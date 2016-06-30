@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CGNYSearchTermTableViewController : UITableViewController
+@interface CGNYSearchTermTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

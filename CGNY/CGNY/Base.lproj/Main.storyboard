@@ -86,7 +86,7 @@
         <scene sceneID="t7v-yh-6Ue">
             <objects>
                 <tableViewController id="uMO-4Y-vgw" customClass="CGNYSearchTermTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tcX-MK-mGb">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="History" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tcX-MK-mGb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,11 +111,11 @@
             </objects>
             <point key="canvasLocation" x="1590" y="347"/>
         </scene>
-        <!--Item-->
+        <!--History-->
         <scene sceneID="ehl-yt-jWD">
             <objects>
                 <navigationController id="2kv-Aq-RRA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="nKI-eV-qqV"/>
+                    <tabBarItem key="tabBarItem" title="History" image="list" id="nKI-eV-qqV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WjS-R1-HdX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -182,5 +182,6 @@
     </scenes>
     <resources>
         <image name="gallery" width="25" height="25"/>
+        <image name="list" width="24" height="21"/>
     </resources>
 </document>
