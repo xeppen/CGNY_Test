@@ -29,13 +29,19 @@
     [super viewDidLoad];
     self.scrollView.frame = self.view.frame;
     
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
+    self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     self.imageView.image = self.data.image;
     self.imageView.frame = self.view.frame;
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.scrollView addSubview:self.imageView];
     
     self.navigationItem.title = self.data.title;
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.imageView.center = CGPointMake(self.imageView.center.x, self.imageView.center.y - self.tabBarController.tabBar.frame.size.height - self.navigationController.navigationBar.frame.size.height - 30);
 }
 
 #pragma mark - Setter
