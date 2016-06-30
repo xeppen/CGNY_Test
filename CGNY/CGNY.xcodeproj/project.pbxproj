@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A14F4D01D2458FA001AD319 /* CGNYImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A14F4CF1D2458FA001AD319 /* CGNYImageCell.m */; };
+		3A14F4D51D2524AD001AD319 /* CGNYImageDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A14F4D41D2524AD001AD319 /* CGNYImageDisplayViewController.m */; };
 		3A2A3B661D22DF1E00B2E2D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B651D22DF1E00B2E2D4 /* main.m */; };
 		3A2A3B691D22DF1E00B2E2D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B681D22DF1E00B2E2D4 /* AppDelegate.m */; };
 		3A2A3B6F1D22DF1E00B2E2D4 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A3B6E1D22DF1E00B2E2D4 /* SecondViewController.m */; };
@@ -35,6 +36,8 @@
 /* Begin PBXFileReference section */
 		3A14F4CE1D2458FA001AD319 /* CGNYImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGNYImageCell.h; sourceTree = "<group>"; };
 		3A14F4CF1D2458FA001AD319 /* CGNYImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGNYImageCell.m; sourceTree = "<group>"; };
+		3A14F4D31D2524AD001AD319 /* CGNYImageDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGNYImageDisplayViewController.h; sourceTree = "<group>"; };
+		3A14F4D41D2524AD001AD319 /* CGNYImageDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGNYImageDisplayViewController.m; sourceTree = "<group>"; };
 		3A2A3B611D22DF1E00B2E2D4 /* CGNY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGNY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A2A3B651D22DF1E00B2E2D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A2A3B671D22DF1E00B2E2D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +89,19 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		3A14F4D21D25249B001AD319 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A5C8B631D232018001A3EC4 /* CGNYGalleryViewController.h */,
+				3A5C8B641D232018001A3EC4 /* CGNYGalleryViewController.m */,
+				3A2A3B6D1D22DF1E00B2E2D4 /* SecondViewController.h */,
+				3A2A3B6E1D22DF1E00B2E2D4 /* SecondViewController.m */,
+				3A14F4D31D2524AD001AD319 /* CGNYImageDisplayViewController.h */,
+				3A14F4D41D2524AD001AD319 /* CGNYImageDisplayViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		3A2A3B581D22DF1E00B2E2D4 = {
 			isa = PBXGroup;
 			children = (
@@ -113,10 +129,7 @@
 				3A2A3B8C1D22DF9800B2E2D4 /* Networking */,
 				3A2A3B671D22DF1E00B2E2D4 /* AppDelegate.h */,
 				3A2A3B681D22DF1E00B2E2D4 /* AppDelegate.m */,
-				3A5C8B631D232018001A3EC4 /* CGNYGalleryViewController.h */,
-				3A5C8B641D232018001A3EC4 /* CGNYGalleryViewController.m */,
-				3A2A3B6D1D22DF1E00B2E2D4 /* SecondViewController.h */,
-				3A2A3B6E1D22DF1E00B2E2D4 /* SecondViewController.m */,
+				3A14F4D21D25249B001AD319 /* ViewControllers */,
 				3A2A3B701D22DF1E00B2E2D4 /* Main.storyboard */,
 				3A2A3B731D22DF1F00B2E2D4 /* Assets.xcassets */,
 				3A2A3B751D22DF1F00B2E2D4 /* LaunchScreen.storyboard */,
@@ -271,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A14F4D51D2524AD001AD319 /* CGNYImageDisplayViewController.m in Sources */,
 				3A2A3B9B1D2317D000B2E2D4 /* CGNYImageData.m in Sources */,
 				3A2A3B901D22DFC300B2E2D4 /* CGNYDataService.m in Sources */,
 				3A2A3B6F1D22DF1E00B2E2D4 /* SecondViewController.m in Sources */,

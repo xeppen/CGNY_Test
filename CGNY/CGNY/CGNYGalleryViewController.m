@@ -10,7 +10,7 @@
 #import "CGNYDataService.h"
 #import "CGNYImageCell.h"
 
-@interface CGNYGalleryViewController () <UICollectionViewDataSource, UISearchBarDelegate>
+@interface CGNYGalleryViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) UISearchBar *searchBar;
@@ -71,14 +71,25 @@
     [self.searchBar setSearchBarStyle:UISearchBarStyleMinimal];
     self.searchBar.delegate = self;
     self.searchBar.placeholder = @"Search for pictures";
-//    [[UITextField appearanceWhenContainedInInstancesOfClasses:[UISearchBar class]] setDefaultTextAttributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]}];
     self.navigationItem.titleView = self.searchBar;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([sender isKindOfClass:[CGNYImageCell class]]) {
+        if ([segue.identifier isEqualToString:@"CGNYImageViewSegue"]) {
+            if ([segue.destinationViewController respondsToSelector:@selector(setData:)]) {
+                [segue.destinationViewController performSelector:@selector(setData:)
+                                                      withObject:[(CGNYImageCell*)sender data]];
+            }
+        }
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"Collection items: %i", self.data.count);
+    NSLog(@"Collection items: %lu", (unsigned long)self.data.count);
     return self.data.count;
 }
 
@@ -89,6 +100,12 @@
     CGNYImageCell *cell = (CGNYImageCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     cell.data = [self.data objectAtIndex:indexPath.row];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    //retrieve image from your array
+    //push new view controller/perform segue with image
 }
 
 #pragma mark - UISearchBarDelegate
